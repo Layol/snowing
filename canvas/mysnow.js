@@ -32,14 +32,14 @@ class Snow {
     }
 }
 //combine two object
-Object.prototype.combine = function (obj2) {
-    for (var item in obj2) {
-        if (!this.hasOwnProperty(item)) {
-            this[item] = obj2[item]
-        }
-    }
-    return this
-}
+// Object.prototype.combine = function (obj2) {
+//     for (var item in obj2) {
+//         if (!this.hasOwnProperty(item)) {
+//             this[item] = obj2[item]
+//         }
+//     }
+//     return this
+// }
 class Fall {
     constructor(canvas, opts) {
         //default setting
@@ -56,7 +56,8 @@ class Fall {
         this.W = canvas.width = canvas.width || window.innerWidth
         this.H = canvas.height = canvas.height || wind.innerHeight
         this.ctx = canvas.getContext('2d')
-        opts ? opts.combine(def) : def
+        // opts ? opts.combine(def) : def
+        opts=Object.assign(def,opts)
         this.g = opts.gravity
         this.maxNum = opts.maxNum
         this.wind = opts.wind
